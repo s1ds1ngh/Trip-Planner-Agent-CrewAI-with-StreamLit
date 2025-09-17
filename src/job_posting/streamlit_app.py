@@ -1,7 +1,9 @@
 import streamlit as st
 import sys
-from crew import StreamToExpander, JobPostingCrew
-import openlit
+import os
+from crew import JobPostingCrew
+from utils import StreamToExpander
+from traceloop.sdk import Traceloop
 
 def main():
     st.set_page_config(page_icon="📊", layout="wide")
@@ -42,5 +44,5 @@ def main():
         st.markdown(result)
 
 if __name__ == "__main__":
-    openlit.init(otlp_endpoint="http://127.0.0.1:4318")
+    Traceloop.init(app_name="job_posting",disable_batch=True,api_key=os.getenv("TRACELOOP_API_KEY"))
     main()

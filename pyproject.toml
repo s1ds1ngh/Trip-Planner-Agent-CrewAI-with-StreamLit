@@ -5,12 +5,9 @@ description = "job_posting using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.12,<3.14"
 dependencies = [
-    "agentops>=0.4.21",
     "crewai[agentops,tools]>=0.186.1,<1.0.0",
-    "openlit>=1.35.1",
-    "pytest>=8.4.2",
-    "pytest-cov>=7.0.0",
     "streamlit>=1.49.1",
+    "traceloop-sdk>=0.47.2",
 ]
 
 [project.scripts]

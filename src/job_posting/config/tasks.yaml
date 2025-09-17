@@ -1,104 +1,151 @@
 research_company_culture_task:
   description: >
-    Analyze the provided company website and the hiring manager's company's domain {company_domain},
-    description {company_description}. Focus on understanding the company's culture, values, and mission.
-    Identify unique selling points and specific projects or achievements highlighted on the site.
+    Analyze the company website {company_domain} and description {company_description} to understand 
+    the company's culture, values, mission, and unique selling points.
     
-    Tool Usage Instructions:
-    1. Use SerperDevTool to search for: "{company_domain} company culture", "{company_domain} mission values", 
-       "{company_domain} employee reviews", and "{company_domain} recent news achievements"
-    2. Use ScrapeWebsiteTool to extract content from key pages like /about, /careers, /values, /mission, 
-       /team, and any blog or news sections on {company_domain}
-    3. Cross-reference findings from multiple sources to build a comprehensive picture
+    TOOL USAGE INSTRUCTIONS:
+    1. Use SerperDevTool to search for:
+       - "{company_domain} company culture values mission statement"
+       - "{company_domain} employee reviews glassdoor indeed"
+       - "{company_domain} recent news achievements press releases 2024"
+       - "{company_domain} work environment benefits perks"
+       - "{company_domain} diversity inclusion initiatives"
     
-    Compile a report summarizing these insights, specifically how they can be leveraged in a job posting
-    to attract the right candidates.
+    2. Use ScrapeWebsiteTool to extract content from:
+       - https://{company_domain}/about (or /about-us)
+       - https://{company_domain}/careers (or /jobs)
+       - https://{company_domain}/values (or /culture)
+       - https://{company_domain}/mission
+       - https://{company_domain}/team (or /leadership)
+       - Any blog or news sections on the main website
+    
+    3. Cross-reference findings from multiple sources to build comprehensive picture
+    4. Focus on details that align with hiring needs: {hiring_needs}
+
   expected_output: >
-    A comprehensive report detailing the company's culture, values, and mission, along with specific selling
-    points relevant to the job role. Include sources used and suggestions on incorporating these insights 
-    into the job posting.
+    A comprehensive company culture report including:
+    1. Company mission, vision, and core values
+    2. Unique culture highlights and work environment
+    3. Recent achievements or notable projects
+    4. Employee benefits and perks
+    5. Key selling points for attracting candidates
+    6. Sources used for research
+    
+    Format as a structured report with clear sections.
 
 research_role_requirements_task:
   description: >
-    Based on the hiring manager's needs: {hiring_needs}, identify the key skills, experiences,
-    and qualities the ideal candidate should possess for the role. Consider the company's current projects,
-    its competitive landscape, and industry trends.
+    Based on the hiring manager's needs "{hiring_needs}" and company information, research and define 
+    the ideal candidate profile. Consider current market trends and industry standards.
     
-    Tool Usage Instructions:
-    1. Use SerperDevTool to research: "current trends {hiring_needs} role 2024", "skills requirements 
-       {hiring_needs} industry", and "salary benchmark {hiring_needs} {company_domain}"
-    2. Use ScrapeWebsiteTool to examine the company's current projects, technology stack, and team 
-       structure from their website, GitHub, or product pages
-    3. Search for competitor job postings and industry standards for similar roles
+    TOOL USAGE INSTRUCTIONS:
+    1. Use SerperDevTool to search for:
+       - "current market trends {hiring_needs} role 2024"
+       - "skills requirements {hiring_needs} industry standards"
+       - "salary benchmark {hiring_needs} {company_domain} location"
+       - "{hiring_needs} job description examples top companies"
+       - "in-demand skills {hiring_needs} 2024"
+       - "career progression {hiring_needs} role"
     
-    Prepare a list of recommended job requirements and qualifications that align with the company's 
-    needs and values.
+    2. Use ScrapeWebsiteTool to examine:
+       - Company's current projects and technology stack from their website
+       - Product pages to understand technical requirements
+       - Engineering/tech blog posts for technology insights
+       - Current job openings on company careers page for similar roles
+       - GitHub repositories if publicly available
+    
+    3. Research competitor companies and their job requirements for similar roles
+    4. Use company culture insights from previous task to align requirements
+
   expected_output: >
-    A structured list of recommended skills, experiences, and qualities for the ideal candidate, 
-    aligned with the company's culture, ongoing projects, and the specific role's requirements. 
-    Include market research insights and competitive analysis.
+    A detailed candidate profile including:
+    1. Essential technical skills (3-5 key skills)
+    2. Required experience level and background
+    3. Important soft skills and qualities
+    4. Nice-to-have qualifications
+    5. Salary range based on market research
+    6. Cultural fit indicators
+    
+    Present as structured lists with brief explanations.
 
 draft_job_posting_task:
   description: >
-    Draft a job posting for the role described by the hiring manager: {hiring_needs}.
-    Use the insights on {company_description} to start with a compelling introduction,
-    followed by a detailed role description, responsibilities, and required skills and qualifications.
+    Create a compelling job posting for the role: {hiring_needs}
     
-    Tool Usage Instructions:
-    1. Use FileReadTool to read and analyze the job_description_example.md file for structure, 
-       formatting guidelines, and tone examples
-    2. Use SerperDevTool to research current job market standards for similar roles, including 
-       common benefits, perks, and industry-specific language
-    3. Use ScrapeWebsiteTool to gather the latest company information, recent achievements, 
-       or specific project details to make the posting more current and appealing
-    4. Follow the structure and tone guidelines from the example file while customizing content
+    TOOL USAGE INSTRUCTIONS:
+    1. Use FileReadTool to:
+       - Read job_description_example.md file completely
+       - Analyze structure, formatting, and tone guidelines
+       - Note section headers and content organization
+       - Reference professional language patterns
     
-    Ensure the tone aligns with the company's culture and incorporate any unique benefits or
-    opportunities offered by the company. Specific benefits: {specific_benefits}.
+    2. Use SerperDevTool to search for:
+       - "best job posting examples {hiring_needs} role 2024"
+       - "job posting templates {hiring_needs} industry"
+       - "engaging job description language recruitment"
+       - "job posting best practices attract candidates"
+       - "current benefits trends tech companies 2024"
+    
+    3. Use ScrapeWebsiteTool to:
+       - Get latest company information and recent achievements from {company_domain}
+       - Check careers page for current job posting format and style
+       - Gather specific project details mentioned on website
+       - Verify company benefits and perks listed on official pages
+    
+    4. Use research insights from previous tasks to craft content that:
+       - Opens with exciting company introduction
+       - Clearly describes role impact and responsibilities
+       - Highlights unique benefits: {specific_benefits}
+       - Reflects company culture and values
+
   expected_output: >
-    A detailed, engaging job posting following the template structure that includes an introduction, 
-    role description, responsibilities, requirements, and unique company benefits. The tone should 
-    resonate with the company's culture and values, aimed at attracting the right candidates.
+    A complete job posting in markdown format with these sections:
+    1. Job Title
+    2. Company Overview (2-3 paragraphs)
+    3. Role Summary (1-2 paragraphs)
+    4. Key Responsibilities (bullet points)
+    5. Required Qualifications (bullet points)
+    6. Preferred Qualifications (bullet points)
+    7. Benefits & Perks
+    8. How to Apply
+    
+    Use professional yet engaging tone throughout.
 
 review_and_edit_job_posting_task:
   description: >
-    Review the draft job posting for the role {hiring_needs}. Check for clarity, engagement, 
-    grammatical accuracy, and alignment with the company's culture and values.
+    Review and polish the draft job posting to ensure it meets professional standards.
     
-    Tool Usage Instructions:
-    1. Use FileReadTool to compare the draft against job_description_example.md for consistency 
-       in structure, formatting, and professional standards
-    2. Use ScrapeWebsiteTool to verify all company information is accurate and up-to-date by 
-       cross-checking with the official company website
-    3. Use SerperDevTool to fact-check salary ranges, industry standards, and verify that 
-       mentioned skills and requirements are current and realistic
-    4. Ensure all claims about company culture and values align with official sources
+    TOOL USAGE INSTRUCTIONS:
+    1. Use FileReadTool to:
+       - Compare draft against job_description_example.md template
+       - Check for structural consistency and formatting standards
+       - Verify adherence to professional tone and style guidelines
+       - Ensure all required sections are present and well-formatted
     
-    Edit and refine the content, ensuring it speaks directly to the desired candidates and 
-    accurately reflects the role's unique benefits and opportunities.
-  expected_output: >
-    A polished, error-free job posting that is clear, engaging, and perfectly aligned with the 
-    company's culture and values. Include specific feedback on improvements made, fact-checking 
-    results, and final approval for publishing. Format the final output in markdown.
+    2. Use ScrapeWebsiteTool to:
+       - Verify all company information is accurate by cross-checking with {company_domain}
+       - Confirm company values, mission, and culture claims are current
+       - Check that mentioned benefits and perks match official company pages
+       - Validate any specific project or technology details mentioned
+    
+    3. Use SerperDevTool to:
+       - Fact-check salary ranges and market standards for {hiring_needs} role
+       - Verify technical skills and requirements are current and realistic
+       - Research industry standards for similar positions in 2024
+       - Check if mentioned technologies, tools, or methodologies are still relevant
+       - Validate job market trends and requirements mentioned
+    
+    4. Review checklist:
+       - Grammar, spelling, and clarity
+       - Professional yet engaging tone
+       - Accuracy of all company and role information
+       - Market-appropriate requirements and compensation
+       - Complete and well-structured format
+       - Alignment with company culture from research
 
-industry_analysis_task:
-  description: >
-    Conduct an in-depth analysis of the industry related to the company's domain {company_domain}.
-    Investigate current trends, challenges, and opportunities within the industry.
-    
-    Tool Usage Instructions:
-    1. Use SerperDevTool to research: "{company_domain} industry trends 2024", "challenges in 
-       [industry] sector", "opportunities [industry] market", and "future outlook [industry]"
-    2. Use ScrapeWebsiteTool to examine industry reports, market research pages, and competitor 
-       websites to understand the competitive landscape
-    3. Search for recent expert opinions, market analysis, and industry publications
-    4. Cross-reference multiple sources to validate trends and insights
-    
-    Assess how these factors could impact the role being hired for and the overall attractiveness 
-    of the position to potential candidates. Consider how the company's position within this industry 
-    and its response to these trends could be leveraged to attract top talent.
   expected_output: >
-    A detailed analysis report that identifies major industry trends, challenges, and opportunities 
-    relevant to the company's domain and the specific job role. Include specific sources and data 
-    points. Provide strategic insights on positioning the job role and the company as an attractive 
-    choice for potential candidates, with actionable recommendations for the job posting.
+    A polished, final job posting in clean markdown format ready for publication. 
+    Include a brief summary of improvements made during the review process.
+    
+    The final output should be a complete, professional job description that accurately 
+    represents the company and role while attracting qualified candidates.
