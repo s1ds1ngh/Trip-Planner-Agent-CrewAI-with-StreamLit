@@ -1,3 +1,4 @@
 src/job_posting/.env
 __pycache__/
 .DS_Store
+.idea

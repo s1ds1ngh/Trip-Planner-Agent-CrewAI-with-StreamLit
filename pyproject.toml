@@ -3,7 +3,7 @@ name = "job_posting"
 version = "0.1.0"
 description = "job_posting using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.12,<3.14"
 dependencies = [
     "agentops>=0.4.21",
     "crewai[agentops,tools]>=0.186.1,<1.0.0",
